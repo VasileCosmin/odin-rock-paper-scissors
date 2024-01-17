@@ -1,8 +1,7 @@
 function getComputerChoice() {
   const arr = ['rock', 'paper', 'scissors']
 
-  console.log(arr[Math.floor(Math.random() * 3)])
-  return Math.floor(Math.random() * 3)
+  return arr[Math.floor(Math.random() * 3)]
 }
 
 function playerSelection() {
@@ -10,11 +9,17 @@ function playerSelection() {
   while (choice.toLowerCase() != 'rock' && choice.toLowerCase() != 'paper' && choice.toLowerCase() != 'scissors') {
     choice = prompt('Choose between rock, paper and scissors: ')
   }
-  return `Your choice is ${choice}`
+
+  return choice
 }
 
-playerSelection()
+function playRound(computerChoice, playerChoice) {
+  playerChoice = playerSelection()
+  computerChoice = getComputerChoice()
 
-function playRound(getComputerChoice, playerSelection) {
-  
+  if (playerChoice === computerChoice) {
+    console.log(`Your choice: ${playerChoice} \t Computer choice: ${computerChoice} \nIt's a tie!`)
+  }
 }
+
+playRound()
